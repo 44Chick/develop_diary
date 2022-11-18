@@ -107,35 +107,73 @@ console.log(user2.address.city); // Busan
 Object.assign을 사용하여 기존 객체를 변경하지 않고 객체를 복사하여 사용할 수 있다. Object.assign은 완전한 deep copy를 지원하지 않는다. 객체 내부의 객체(Nested Object)는 Shallow copy된다.
 user1 객체를 빈객체에 복사하여 새로운 객체 user2를 생성하였다. user1과 user2는 어드레스를 공유하지 않으므로 한 객체를 변경하여도 다른 객체에 아무런 영향을 주지 않는다.
 주의할 것은 user1 객체는 const로 선언되어 재할당은 할 수 없지만 객체의 프로퍼티는 보호되지 않는다. 즉 객체의 내용은 변경할 수 있다.
+<br/>
+<br/>
 
 ### 불변객체화를 통한 객체 변경 방지
 #### Object.freeze 
-<br/>
 Object.freeze()를 사용하여 불변(immutable) 객체로 만들수 있다.
 <br/>
 하지만 객체 내부의 객체(Nested Object)는 변경가능하다.
-<br/>
 
 ```js
+const user1 = {
+    name: 'Lee',
+    address: {
+      city: 'Seoul'
+    }
+  };
+  
+  // Object.assign은 완전한 deep copy를 지원하지 않는다.
+  const user2 = Object.assign({}, user1, {name: 'Kim'});
+  
+  console.log(user1.name); // Lee
+  console.log(user2.name); // Kim
+  
+  Object.freeze(user1);
+  
+  user1.name = 'Kim'; // 무시된다
+  user1.address.city = 'Busan';  // 변경된다.
 
+  console.log(user1); 
+  
+  console.log(Object.isFrozen(user1)); // true
 
 ```
+<br/>
+내부 객체까지 변경 불가능하게 만들려면 Deep freeze를 하여야 한다.
 
+```js
+function deepFreeze(obj) {
+  const props = Object.getOwnPropertyNames(obj);
 
+  props.forEach((name) => {
+    const prop = obj[name];
+    if(typeof prop === 'object' && prop !== null) {
+      deepFreeze(prop);
+    }
+  });
+  return Object.freeze(obj);
+}
 
+const user = {
+  name: 'Lee',
+  address: {
+    city: 'Seoul'
+  }
+};
 
+deepFreeze(user);
 
+user.name = 'Kim';           // 무시된다
+user.address.city = 'Busan'; // 무시된다
 
+console.log(user); // { name: 'Lee', address: { city: 'Seoul' } }
+```
 
+<br/>
 
-
-
-
-
-
-
-
-
-
-
-
+# 앝은복사(Shallow Copy) 와 깊은 복사(Deep Copy)
+얕은 복사는 원시 값(문자열, 수치, 진위값, null, undefined, Symbol)을 복사하지만, 그 이외의 오브젝트는 참조를 복사한다. 참조가 복사된다는 것은 복사원과 복사처에서 객체가 공유된다는 것이다.
+한편 깊은 복사는 프리미티브 값뿐만 아니라 오브젝트도 값으로 복사한다. 따라서, 복사원과 복사처의 객체는 별개이다.
+(Object.assign는 얕은 복사로 해당된다.)
