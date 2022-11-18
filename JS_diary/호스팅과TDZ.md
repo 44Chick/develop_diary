@@ -111,8 +111,10 @@ const func = function(){
     console.log('It\'s Anonymous function')
 };
 ```
+# 컨택스트(context)
 
-
+### 실행 컨택스트(Execution Context)
+실행 가능한 코드가 실행되기 위해 필요한 환경.
 
 
 
