@@ -159,6 +159,36 @@ Variable Object는 유일하며 최상위에 위치하고 모든 전역 변수, 
 Variable Object는 Activation Object(AO / 활성 객체)를 가리키며 매개변수와 인수들의 정보를 배열의 형태로 담고 있는 객체인 arguments object가 추가된다.
 
 #### Scope Chain
+스코프 체인은 해당 전역 또는 함수가 참조할 수 있는 변수, 함수 선언 등의 정보를 담고 있는 전역 객체(GO) 또는 활성 객체(AO)의 리스트를 가리킨다.<br/>
+현재 실행 컨텍스트의 활성 객체(AO)를 선두로 하여 순차적으로 상위 컨텍스트의 활성 객체(AO)를 가리키며 마지막 리스트는 전역 객체(GO)를 가리킨다.<br/>
+(상위(외부)로 액세스할 수 있지만 하위(내부)에는 액세스할 수 없다.)<br/>
 
+![scope_chain](https://user-images.githubusercontent.com/49892292/202718246-02c514f7-fe17-460e-a43d-200ed3e6df54.png)
 
+<br/><br/>
+### 은닉화
+```js
+(function () {
+    var a = 'a';
+  })();
+  
+  console.log(a); // a is not defined
+```
+함수 외부에서 a를 출력해보면, 아직 정의되지 않았다(a is not defined)는 에러메세지를 확인할 수 있다. <br/>
+이러한 방식과 같이 직접적으로 변경되면 안 되는 변수에 대한 접근을 막는 것을 은닉화라고 한다.<br/>
 
+#### 클로저를 통한 은닉화
+클로저를 사용하여 외부에서 직접적으로 변수에 접근할 수 있도록 캡슐화(은닉화)할 수 있다.
+```js
+function a(){
+  let temp = 'a' 
+  
+  return temp;
+} 
+
+// console.log(temp)  error: temp is not defined
+const result = a()
+console.log(result); //a
+```
+함수 내부적으로 선언된 temp에는 직접적으로 접근을 할 수 없다. <br/>
+함수 a를 실행시켜 그 값을 result라는 변수에 담아 클로저를 생성함으로써 temp의 값에 접근이 가능하다.<br/>
