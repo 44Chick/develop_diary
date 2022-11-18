@@ -83,6 +83,14 @@ b = 2;
 ```
 <br/>
 
+# TDZ
+TDZ ( Temporal Dead Zone )는 해석하면 "일시적 사각지대" 이다.
+
+```js
+console.log(b) // TDZ
+let b = 2; // 선언, 초기화
+console.log(b)
+```
 
 
 
