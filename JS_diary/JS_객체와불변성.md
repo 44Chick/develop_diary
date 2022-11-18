@@ -112,7 +112,9 @@ user1 객체를 빈객체에 복사하여 새로운 객체 user2를 생성하였
 #### Object.freeze 
 <br/>
 Object.freeze()를 사용하여 불변(immutable) 객체로 만들수 있다.
-<br/><br/>
+<br/>
+하지만 객체 내부의 객체(Nested Object)는 변경가능하다.
+<br/>
 
 ```js
 
