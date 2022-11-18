@@ -83,7 +83,7 @@ b = 2;
 ```
 <br/>
 
-# TDZ
+### TDZ
 TDZ ( Temporal Dead Zone )는 해석하면 "일시적 사각지대" 이다.
 
 ```js
@@ -91,8 +91,26 @@ console.log(b) // TDZ
 let b = 2; // 선언, 초기화
 console.log(b)
 ```
+### 함수선언문 과 함수표현식
 
+함수선언문 은 호이스팅이 이루어지지만, 함수표현식은 이루어지지않는다.
 
+```js
+func() // "It's declarative function."
+
+// 선언적 함수 (함수 선언)
+function func() {
+    console.log('It\'s declarative function.')
+}
+```
+```js
+func() // ReferenceError: Cannot access 'func' before initialization
+
+// 익명 함수 (함수 표현식)
+const func = function(){
+    console.log('It\'s Anonymous function')
+};
+```
 
 
 
