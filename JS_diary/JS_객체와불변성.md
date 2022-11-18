@@ -20,9 +20,7 @@
 이 두 가지 차이점은 값을 변수에 저장하는 방법이다.
 
 #### 기본형
-number·string·boolean·symbol과 같은 기본형은 변수에 값이 그대로 저장된다.
-<br/><br/>
-
+number·string·boolean·symbol과 같은 기본형은 변수에 값이 그대로 저장된다.  <br/>
 
 #### 참조형
 array·object·function과 같은 참조형은 참조치를 저장한다. <br/>
@@ -30,7 +28,8 @@ array·object·function과 같은 참조형은 참조치를 저장한다. <br/>
 
 기본형·참조형에 따라 스크립트의 동작이 다르므로 주의!
 
-### 메모리 저장 방식
+
+
 
 
 
