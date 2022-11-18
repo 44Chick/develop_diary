@@ -56,4 +56,42 @@ let y = 0;
 }
 console.log(y);   // 0
 ```
+<br/>
+<br/>
+
+# 호이스팅
+
+JavaScript는 위에서 부터 아래로 한줄씩 준차적으로 실행된다. <br/>
+이지만 그전에 소스코드 평가 과정에서 선언적 코드들을 실행한다. <br/>
+(변수도 사용 가능하지만 초기화를하지 않으면 var 인경우 undefined가들어가며 , let,const는 error가 뜰것이다) <br/>
+
+```js
+catName("Tama");
+
+function catName(name) {
+  console.log("My cat name is", name);
+}
+// 출력 : My cat name is tama
+
+console.log(a); // undefined
+var a; // 선언
+a = 6; // 초기화
+
+console.log(b) // ReferenceError
+let b;
+b = 2;
+```
+<br/>
+
+
+
+
+
+
+
+
+
+
+
+
 
