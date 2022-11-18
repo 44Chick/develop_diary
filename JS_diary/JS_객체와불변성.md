@@ -23,6 +23,7 @@
 number·string·boolean·symbol과 같은 기본형은 변수에 값이 그대로 저장된다.
 <br/><br/>
 
+
 #### 참조형
 array·object·function과 같은 참조형은 참조치를 저장한다. <br/>
 ※ 참조치 → 값을 실제로 격납하고 있는 메모리상의 주소<br/><br/>
