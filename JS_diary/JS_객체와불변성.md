@@ -22,9 +22,14 @@
 #### 기본형
 number·string·boolean·symbol과 같은 기본형은 변수에 값이 그대로 저장된다.  <br/>
 
+![img_primetive](https://user-images.githubusercontent.com/49892292/202683887-ce528028-f86c-455f-a819-44225fa6f985.png)
+
 #### 참조형
 array·object·function과 같은 참조형은 참조치를 저장한다. <br/>
 ※ 참조치 → 값을 실제로 격납하고 있는 메모리상의 주소<br/><br/>
+
+![img_refference](https://user-images.githubusercontent.com/49892292/202684031-aee5e5e8-67c4-4f29-9a96-c99050636984.png)
+
 
 기본형·참조형에 따라 스크립트의 동작이 다르므로 주의!
 
