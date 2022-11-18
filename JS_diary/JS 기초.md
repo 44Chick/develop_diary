@@ -18,8 +18,13 @@ let b = 'thirteen' // String (문자열) 선언
  a = '13' // String (문자열) 변함
  a = true // boolean (불) 으로 변함
 ```
-
-JavaScript 는 let 이라고 선언되었으나 let 타입이라는 뜻은 아니다.
+ 형변환 예시
+ ```js
+console.log(10 + '5') // "105" - String
+console.log(10 - '5') // 5 - Number 
+```
+ 
+ JavaScript 는 let 이라고 선언되었으나 let 타입이라는 뜻은 아니다.
   <br/>
 참조하는 형식을 미리 선언하며 예상 하지 못한 변경을 막아준다고 생각 하면 된다.
 |선언 타입|대입|재 선언|스코프|
