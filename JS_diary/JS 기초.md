@@ -18,7 +18,9 @@ let b = 'thirteen' // String (문자열) 선언
  a = '13' // String (문자열) 변함
  a = true // boolean (불) 으로 변함
 ```
- 형변환 예시
+ 
+### 형변환 예시
+ 
  ```js
 console.log(10 + '5') // "105" - String
 console.log(10 - '5') // 5 - Number 
