@@ -160,3 +160,5 @@ Variable Object는 Activation Object(AO / 활성 객체)를 가리키며 매개�
 
 #### Scope Chain
 
+
+
